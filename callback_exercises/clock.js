@@ -9,9 +9,7 @@ function Clock () {
   this.printTime();
   // 4. Schedule the tick at 1 second intervals.
   var runningTick = this._tick.bind(this);
-  setTimeout(runningTick, 1000);
-  // setTimeout(runningTick, 1000);
-  // setTimeout(runningTick, 1000);
+  setInterval(runningTick, 1000);
 }
 
 Clock.prototype.printTime = function () {
@@ -24,8 +22,16 @@ Clock.prototype._tick = function () {
   // 1. Increment the time by one second.
   // 2. Call printTime.
   this.currSecs += 1;
+  if (this.currSecs === 60) {
+    this.currSecs = 0;
+    this.currMins += 1;
+  }
+
+  if (this.currMins === 60) {
+    this.currMins = 0;
+    this.currHrs += 1;
+  }
   this.printTime();
 };
 
 var clock = new Clock();
-// clock.printTime();
