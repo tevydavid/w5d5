@@ -69,6 +69,7 @@ function HanoiGame() {
         run(completionCallback);
       }
     });
+
   }
 
   run(function() {

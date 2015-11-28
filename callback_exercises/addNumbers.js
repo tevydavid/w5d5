@@ -5,10 +5,10 @@ var reader = readline.createInterface({
 });
 
 function addNumbers (sum, numsLeft, completionCallback) {
-  numsLeft -= 1;
   reader.question("Enter a number: ", function (numString) {
     var num = parseInt(numString);
       sum += num;
+      numsLeft -= 1;
 
       if (numsLeft === 0) {
         completionCallback(sum);
